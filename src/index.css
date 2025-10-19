@@ -1,3 +1,22 @@
+@keyframes carousel-right-appear {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+/* Carousel Animations for Skills */
+@keyframes carousel-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+@keyframes carousel-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-carousel-right {
+  animation: carousel-right 18s linear infinite;
+}
+.animate-carousel-left {
+  animation: carousel-left 18s linear infinite;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -239,4 +258,20 @@ html {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+}
+
+/* Marquee Animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+@keyframes marquee-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(33.33%); }
+}
+.animate-marquee-left {
+  animation: marquee-left 18s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 18s linear infinite;
 }

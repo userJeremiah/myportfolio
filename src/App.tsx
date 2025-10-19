@@ -4,6 +4,7 @@ import { Menu, X, Mail, Github, Linkedin, ExternalLink, Figma, FileText, Briefca
 import greenWalletImage from "./assets/green-wallet-splash.png";
 import rydaLogo from "./assets/ryda-logo.png";
 import apiblokLogo from "./assets/apiblok-logo.png";
+import { CarouselRow } from "./components/CarouselRow";
 
 // Custom hook for scroll animations
 function useScrollAnimation() {
@@ -229,8 +230,33 @@ export default function App() {
   ];
 
   const skills = {
-    design: ["Figma", "Adobe XD", "Sketch", "Prototyping"],
-    writing: ["Technical Documentation", "UX Writing", "Content Strategy", "Blog Writing"]
+    design: [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "Prototyping",
+      "UX/UI Fundamentals",
+      "Wireframing",
+      "User Research",
+      "Visual Design",
+      "Collaboration & Communication Skills",
+      "Product Thinking",
+      "Front-end Basics (HTML, CSS, JS)",
+      "Problem-solving & Adaptability"
+    ],
+    writing: [
+      "Technical Documentation",
+      "UX Writing",
+      "Content Strategy",
+      "Blog Writing",
+      "Editing",
+      "Familiarity with Documentation Tools",
+      "CMS",
+      "Markup Languages",
+      "Attention to Detail",
+      "Team Player",
+      "Adaptability"
+    ]
   };
 
   const nextArticle = () => {
@@ -443,46 +469,49 @@ export default function App() {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-medium text-gray-400 mb-3">Design</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.design.map((skill, index) => {
-                      const colors = [
-                        'border-blue-400',
-                        'border-cyan-400',
-                        'border-teal-400',
-                        'border-green-400'
-                      ];
-                      return (
-                        <span 
-                          key={skill} 
-                          className={`bg-gray-700/50 px-4 py-2 rounded-lg text-sm text-gray-200 border-2 animate-border-glow ${colors[index % colors.length]}`}
-                          style={{ animationDelay: `${index * 0.3}s` }}
-                        >
-                          {skill}
-                        </span>
-                      );
-                    })}
+                  <div className="overflow-hidden">
+                    <div className="space-y-2">
+                      {/* Carousel Row Component for seamless infinite loop */}
+                      {/* First row: left, normal order */}
+                      <CarouselRow
+                        key="left"
+                        skills={skills.design}
+                        direction="left"
+                        delay={0}
+                      />
+                      {/* Second row: right, start from second-to-last skill */}
+                        <CarouselRow
+                          key="right"
+                          skills={[
+                            ...skills.design.slice(-2),
+                            ...skills.design.slice(0, skills.design.length - 2)
+                          ]}
+                          direction="right"
+                          delay={0}
+                        />
+                    </div>
                   </div>
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-gray-400 mb-3">Writing</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.writing.map((skill, index) => {
-                      const colors = [
-                        'border-purple-400',
-                        'border-pink-400',
-                        'border-rose-400',
-                        'border-orange-400'
-                      ];
-                      return (
-                        <span 
-                          key={skill} 
-                          className={`bg-gray-700/50 px-4 py-2 rounded-lg text-sm text-gray-200 border-2 animate-border-glow ${colors[index % colors.length]}`}
-                          style={{ animationDelay: `${index * 0.3}s` }}
-                        >
-                          {skill}
-                        </span>
-                      );
-                    })}
+                  <div className="overflow-hidden space-y-2">
+                    {/* First row: right, normal order, all skills */}
+                    <CarouselRow
+                      key="writing-right"
+                      skills={skills.writing}
+                      direction="right"
+                      delay={0}
+                    />
+                    {/* Second row: left, start from second-to-last skill, all skills, reduced delay */}
+                    <CarouselRow
+                      key="writing-left"
+                      skills={[
+                        ...skills.writing.slice(-2),
+                        ...skills.writing.slice(0, skills.writing.length - 2)
+                      ]}
+                      direction="left"
+                      delay={0}
+                    />
                   </div>
                 </div>
               </div>
