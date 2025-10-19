@@ -436,8 +436,8 @@ export default function App() {
         <div className="absolute bottom-20 left-1/2 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 sm:mb-12 text-center">About Me</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 px-2 sm:px-0">
             {(() => {
               const leftColumn = useScrollAnimation();
               const rightColumn = useScrollAnimation();
@@ -445,8 +445,8 @@ export default function App() {
               return (
                 <>
                   <div ref={leftColumn.ref} className={`space-y-6 ${leftColumn.isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 hover:border-gray-600 transition-all">
-                <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+              <div className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-700/50 hover:border-gray-600 transition-all">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 flex items-center gap-2">
                   <Figma size={24} className="text-blue-400" />
                   Product Design
                 </h3>
@@ -455,7 +455,7 @@ export default function App() {
                 </p>
               </div>
               <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 hover:border-gray-600 transition-all">
-                <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 flex items-center gap-2">
                   <FileText size={24} className="text-purple-400" />
                   Technical Writing
                 </h3>
@@ -465,8 +465,8 @@ export default function App() {
               </div>
             </div>
             <div ref={rightColumn.ref} className={`bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 ${rightColumn.isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-              <h3 className="text-xl font-semibold text-white mb-6">Skills & Tools</h3>
-              <div className="space-y-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Skills & Tools</h3>
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <h4 className="text-sm font-medium text-gray-400 mb-3">Design</h4>
                   <div className="overflow-hidden">
